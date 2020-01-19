@@ -1,37 +1,48 @@
 #include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
 
 int main(){
+  srand(time(NULL)); 
   int PointDeVieHero = 100;
-  int PointDeVieMob1 = 25;
-  int PointDeVieMob2 = 25;
+  int PointDeVieMob = 25;
+  int Choix;
+
+
   printf("Vous avez %d PV\n", PointDeVieHero);
   printf("Un monstre vous bloque la route !\n");
-  printf("Monstre : %d PV\n", PointDeVieMob1);
-  printf("Vous attaquez le monstre\n");
-  PointDeVieMob1=PointDeVieMob1-5;
-  printf("Monstre : %d PV\n",PointDeVieMob1);
+  printf("Monstre : %d PV\n", PointDeVieMob);
 
-  while (PointDeVieMob1>0) {
-    PointDeVieMob1=PointDeVieMob1-5;
-    printf("Monstre : %d PV\n", PointDeVieMob1);
-  }
-  printf("Le monstre est mort ! Vous avez gagne ! \n");
-  printf("Vous avez %d PV\n", PointDeVieHero);
+  while (PointDeVieMob > 0){
+    printf("Que voulez vous faire? Attaque (1) Defense (2)\n" );
+    scanf("%d", &Choix);
+    if (Choix==1) {
+      PointDeVieMob = PointDeVieMob - 5;
+      printf("Monstre : %d PV\n", PointDeVieMob);
+      printf("Le monstre contre-attaque. Vous subissez 5 degats\n" );
+      PointDeVieHero=PointDeVieHero - 5;
+      printf("Joueur : %d PV\n",PointDeVieHero );
+    }
 
-  printf("Un monstre vous bloque la route !\n");
-  printf("Monstre : %d PV\n", PointDeVieMob2 );
-  printf("Vous attaquez le monstre mais il se defend !\n");
-  while (PointDeVieMob2>0 && PointDeVieHero>0) {
-    PointDeVieMob2=PointDeVieMob2-5;
-    PointDeVieHero=PointDeVieHero-25;
-    printf("Monstre : %d PV\n", PointDeVieMob2 );
-    printf("Joueur : %d PV\n", PointDeVieHero );
-
-    if (PointDeVieHero<=0) {
-      printf("Vous etes mort !\n");
+    if (Choix==2){
+      printf("Vous vous couvrez une barriere protectrice, les degats sont reduits\n");
+      printf("Le monstre attaque !\n");
+      PointDeVieHero=PointDeVieHero-1;
+      printf("Joueur : %d PV\n", PointDeVieHero );
     }
 
   }
+  printf("Le monstre est mort ! Vous avez gagne ! \n");
+
+
+    if (PointDeVieHero <= 0) {
+      printf("Vous etes mort !\n");
+
+
+
+    }
+
+
 
 
   return 0;
