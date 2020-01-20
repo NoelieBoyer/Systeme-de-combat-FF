@@ -21,17 +21,18 @@ int main(){
     scanf("%d", &Choix);
     //attaque joueur
     if (Choix==1) {
-      printf("Vous infligez 5 degats\n");
-      PointDeVieMob = PointDeVieMob - 5;
-      if(PointDeVieMob <= 0){
-        printf("Le monstre est mort !\n");
-        break;
-      } else if(PointDeVieMob >= 0){
-        printf("Monstre : %d PV\n", PointDeVieMob );
-      }
+
 
         //attaque mob
         if (ChoixMob==0) {
+          printf("Vous infligez 5 degats\n");
+          PointDeVieMob = PointDeVieMob - 5;
+          if(PointDeVieMob <= 0){
+            printf("Le monstre est mort !\n");
+            break;
+          } else if(PointDeVieMob >= 0){
+            printf("Monstre : %d PV\n", PointDeVieMob );
+          }
           printf("Le monstre contre-attaque ! \n" );
           PointDeVieHero=PointDeVieHero-5;
           if(PointDeVieHero <= 0){
@@ -43,7 +44,7 @@ int main(){
         }
           //defense mob
         else  if (ChoixMob==1) {
-            printf("Le monstre se defend ! \n");
+            printf("Vous attaquez. Le monstre se defend ! \n");
             PointDeVieMob=PointDeVieMob-1;
             if(PointDeVieMob <= 0){
               printf("Vous etes morts !\n");
@@ -80,3 +81,5 @@ int main(){
     return 0;
 
   }
+
+  
