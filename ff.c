@@ -14,11 +14,7 @@ int main(){
   int ChoixMob;
   bool isMonstrePoison = false;
   bool isHeroPoison = false;
-
-
-
-
-
+  
   printf("Vous avez %d PV. Vous avez %d PM.\n", PointDeVieHero,PMHero);
   printf("Un monstre vous bloque la route !\n");
   printf("Monstre : %d PV\n", PointDeVieMob);
