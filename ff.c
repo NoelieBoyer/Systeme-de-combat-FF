@@ -25,7 +25,7 @@ int main(){
 
   while (PointDeVieMob > 0){
     ChoixMob=rand()%3;
-    printf("Que voulez vous faire? Attaque (1) Defense (2) Poison (3) \n" );
+    printf("Que voulez vous faire? Attaque (1) Defense (2) Poison (3) Antidote (4) \n" );
     scanf("%d", &Choix);
 
     //attaque joueur
@@ -352,12 +352,62 @@ int main(){
               }
             }
             break;
+            case 4 :
+              if (PMHero<=20) {
+                PMHero++;
+              }
+              if (PMMob<=20) {
+                PMMob++;
+              }
+              if (isMonstrePoison==true){
+                printf("Le monstre prend un degat de poison\n" );
+                PointDeVieMob=PointDeVieMob-1;
+                if(PointDeVieMob <= 0){
+                  printf("Le monstre est mort !\n");
+                  break;
+                } else if(PointDeVieMob >= 0){
+                  printf("Monstre : %d PV\n", PointDeVieMob );
+                }
+              }
+
+              printf("Vous utilisez un sort d'antidote\n");
+              isHeroPoison=false;
+              PMHero=PMHero-5;
+
+                //attaque mob
+                if (ChoixMob==0) {
+                  printf("Le monstre attaque ! \n" );
+                  PointDeVieHero=PointDeVieHero-1;
+                  if(PointDeVieHero <= 0){
+                    printf("vous etes mort !\n");
+                    break;
+                  } else if(PointDeVieHero >= 0){
+                    printf("Joueur : %d PV\n", PointDeVieHero );
+                  }
+                }
+                  //defense mob
+                else  if (ChoixMob==1) {
+                    printf("Le monstre se defend ! \n");
+                    printf("Rien ne se passe...\n");
+                  }
+
+                else  if (ChoixMob==2) {
+                  printf("Le monstre utilise poison \n");
+                  printf("Le héros est insensible au poison ce tour\n");
+                      }
+                        //defense mob
+
+
+                  break;
+
+
 
             default:
             printf("Veuillez choisir entre les choix possible.\n");
             break;
+          }
     }
-  }
+
 
 
     return 0;
