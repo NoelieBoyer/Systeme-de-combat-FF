@@ -3,6 +3,14 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+struct Hero{
+  char Nom;
+  char TypeMagie;
+  int PV;
+  int PM;
+};
+typedef struct Hero hero;
+
 int main(){
   //déclaration de variable
   srand(time(NULL));
@@ -14,12 +22,20 @@ int main(){
   int ChoixMob;
   bool isMonstrePoison = false;
   bool isHeroPoison = false;
+  char*Nom;
 
+  hero a;
+  a.PV=120;
+  a.PM=15;
+  printf("PV : %d\n",a.PV);
+  printf("PM : %d\n",a.PM);
 
+  hero l;
+  l.PV=100;
+  l.PM=20;
+  printf("PV : %d\n",l.PV);
+  printf("PM : %d\n",l.PM);
 
-
-
-  printf("Vous avez %d PV. Vous avez %d PM.\n", PointDeVieHero,PMHero);
   printf("Un monstre vous bloque la route !\n");
   printf("Monstre : %d PV\n", PointDeVieMob);
 
@@ -411,5 +427,4 @@ int main(){
 
 
     return 0;
-
-  }
+}
